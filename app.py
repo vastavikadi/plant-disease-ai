@@ -55,6 +55,10 @@ def model_prediction(image_bytes):
         print(f"Error in model_prediction: {e}")
         return None
 
+@app.route('/')
+def health_check():
+    return "Healthy", 200
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'image' not in request.files:
